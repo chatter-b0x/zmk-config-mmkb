@@ -1,0 +1,40 @@
+#
+# Copyright (c) 2024 ZMK Project Contributors
+# SPDX-License-Identifier: MIT
+#
+
+if BOARD_MMKB
+
+
+config ZMK_KEYBOARD_NAME
+    default "MMKB"
+
+
+if USB_DEVICE_STACK
+
+config USB_NRFX
+    default y
+
+endif # USB_DEVICE_STACK
+
+
+if ZMK_DISPLAY
+
+config I2C
+    default y
+
+config SSD1306
+    default y
+
+# DEPRECATED
+# config SSD1306_REVERSE_MODE
+#     default y
+
+endif # ZMK_DISPLAY
+
+
+config ZMK_MAX17048
+    default y
+
+
+endif # BOARD_MMKB

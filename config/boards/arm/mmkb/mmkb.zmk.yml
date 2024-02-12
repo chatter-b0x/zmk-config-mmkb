@@ -1,0 +1,13 @@
+file_format: "1"
+id: mmkb
+name: MMKB
+type: board
+arch: arm
+features:
+  - keys
+  - display
+  - encoder
+  - underglow
+outputs:
+  - usb
+  - ble

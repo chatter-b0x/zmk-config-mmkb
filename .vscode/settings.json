@@ -1,0 +1,9 @@
+{
+    "C_Cpp.errorSquiggles": "disabled",
+    "files.associations": {
+        "*.overlay": "c",
+        "*.dtsi": "c",
+        "*.conf": "c",
+        "*.dts": "c"
+    }
+}

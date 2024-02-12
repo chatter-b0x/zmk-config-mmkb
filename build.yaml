@@ -13,5 +13,4 @@
 #
 ---
 include:
-  - board: nrf52840dk_nrf52840
-    shield: two_percent_milk
+  - board: mmkb

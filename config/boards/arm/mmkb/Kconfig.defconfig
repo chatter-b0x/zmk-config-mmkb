@@ -15,13 +15,13 @@ if USB_DEVICE_STACK
 config USB_NRFX
     default y
 
+config USB_DEVICE_STACK
+    default y
+
 endif # USB_DEVICE_STACK
 
 
 if ZMK_DISPLAY
-
-config I2C
-    default y
 
 config SSD1306
     default y
@@ -32,6 +32,12 @@ config SSD1306
 
 endif # ZMK_DISPLAY
 
+
+config BT_CTLR
+    default BT
+
+config I2C
+    default y
 
 config ZMK_MAX17048
     default y

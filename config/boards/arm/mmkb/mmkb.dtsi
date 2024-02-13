@@ -181,9 +181,6 @@
         display-offset = <0>;
         multiplex-ratio = <40>;
         prechargep = <0x22>;
-        segment-remap;
-        com-invdir;
-        com-sequential;
         inversion-on;
     };
 };

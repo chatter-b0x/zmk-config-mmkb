@@ -174,8 +174,8 @@
 &i2c0 {
     status = "okay";
     pinctrl-0 = <&i2c0_default>;
-    pinctrl-1 = <&i2c0_sleep>;
-    pinctrl-names = "default", "sleep";
+    // pinctrl-1 = <&i2c0_sleep>;
+    pinctrl-names = "default";
 
     oled: ssd1306@3c {
         compatible = "solomon,ssd1306fb";
@@ -194,19 +194,19 @@
     };
 };
 
-// &i2c1 {
-//     status = "okay";
-//     compatible = "nordic,nrf-twim";
-//     pinctrl-0 = <&i2c1_default>;
-//     pinctrl-1 = <&i2c1_sleep>;
-//     pinctrl-names = "default", "sleep";
-//     clock-frequency = <100000>;
+&i2c1 {
+    status = "okay";
+    compatible = "nordic,nrf-twim";
+    pinctrl-0 = <&i2c1_default>;
+    pinctrl-1 = <&i2c1_sleep>;
+    pinctrl-names = "default", "sleep";
+    clock-frequency = <100000>;
 
-//     fuelgauge: max17048@36 {
-//         compatible = "zmk,maxim-max17048";
-//         reg = <0x36>;
-//     };
-// };
+    fuelgauge: max17048@36 {
+        compatible = "zmk,maxim-max17048";
+        reg = <0x36>;
+    };
+};
 
 &spi3 {
   compatible = "nordic,nrf-spim";

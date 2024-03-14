@@ -49,3 +49,4 @@ CONFIG_SPI=y
 # USB & bluetooth low energy
 CONFIG_ZMK_USB=y
 CONFIG_ZMK_BLE=y
+CONFIG_ZMK_USB_LOGGING=y

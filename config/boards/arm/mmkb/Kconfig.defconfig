@@ -17,11 +17,6 @@ config USB_NRFX
 
 endif # USB_DEVICE_STACK
 
-
-config SYSTEM_WORKQUEUE_STACK_SIZE
-    default 2048
-
-
 if ZMK_DISPLAY
 
 config SSD1306
@@ -36,8 +31,8 @@ config BT_CTLR
 config I2C
     default y
 
-config ZMK_MAX17048
-    default y
+# config ZMK_MAX17048
+#    default y
 
 
 endif # BOARD_MMKB

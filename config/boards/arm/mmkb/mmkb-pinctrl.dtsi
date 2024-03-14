@@ -34,7 +34,7 @@
     //                 <NRF_PSEL(TWIM_SCL, 0, 14)>;
     //         low-power-enable;
     //     };
-    };
+    // };
 
     // I2C for fuel gauge chip
     i2c1_default: i2c1_default {

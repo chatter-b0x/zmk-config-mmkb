@@ -195,7 +195,7 @@
 };
 
 &i2c1 {
-    status = "okay";
+    //status = "okay";
     compatible = "nordic,nrf-twim";
     pinctrl-0 = <&i2c1_default>;
     pinctrl-1 = <&i2c1_sleep>;

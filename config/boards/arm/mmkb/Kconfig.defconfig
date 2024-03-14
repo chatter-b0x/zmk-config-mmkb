@@ -31,8 +31,8 @@ config BT_CTLR
 config I2C
     default y
 
-# config ZMK_MAX17048
-#    default y
+config ZMK_MAX17048
+    default y
 
 
 endif # BOARD_MMKB

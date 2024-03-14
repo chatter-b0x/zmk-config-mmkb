@@ -113,10 +113,10 @@
     //     status = "okay";
     // };
 
-    EXT_POWER {
-        compatible = "zmk,ext-power-generic";
-        control-gpios = <&gpio0 24 GPIO_ACTIVE_HIGH>;
-    };
+    // EXT_POWER {
+    //     compatible = "zmk,ext-power-generic";
+    //     control-gpios = <&gpio0 24 GPIO_ACTIVE_HIGH>;
+    // };
 };
 
 &gpiote {

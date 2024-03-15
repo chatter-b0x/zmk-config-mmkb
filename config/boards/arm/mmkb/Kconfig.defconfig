@@ -32,7 +32,7 @@ config I2C
     default y
 
 config ZMK_MAX17048
-    default n
+    default y
 
 config LV_Z_VDB_SIZE
     default 64

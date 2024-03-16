@@ -9,6 +9,15 @@ if BOARD_MMKB
 config ZMK_KEYBOARD_NAME
     default "MMKB"
 
+config BT_CTLR
+    default BT
+
+config I2C
+    default y
+
+config ZMK_MAX17048
+    default y
+
 
 if USB_DEVICE_STACK
 
@@ -17,21 +26,10 @@ config USB_NRFX
 
 endif # USB_DEVICE_STACK
 
+
 if ZMK_DISPLAY
 
 config SSD1306
-    default y
-
-endif # ZMK_DISPLAY
-
-
-config BT_CTLR
-    default BT
-
-config I2C
-    default y
-
-config ZMK_MAX17048
     default y
 
 config LV_Z_VDB_SIZE
@@ -46,5 +44,8 @@ config LV_Z_BITS_PER_PIXEL
 choice LV_COLOR_DEPTH
     default LV_COLOR_DEPTH_1
 endchoice
+
+endif # ZMK_DISPLAY
+
 
 endif # BOARD_MMKB

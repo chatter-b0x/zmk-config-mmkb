@@ -198,7 +198,7 @@
 
 &i2c1 {
     status = "okay";
-    compatible = "nordic,nrf-twim";
+    compatible = "nordic,nrf-twi";
     pinctrl-0 = <&i2c1_default>;
     pinctrl-1 = <&i2c1_sleep>;
     pinctrl-names = "default", "sleep";
@@ -206,7 +206,9 @@
 
     fuel_gauge: max17048@36 {
         compatible = "zmk,maxim-max17048";
-        reg = <0x36>;
+        status = "okay";
+		label = "BATTERY";
+		reg = <0x36>;
     };
 };
 

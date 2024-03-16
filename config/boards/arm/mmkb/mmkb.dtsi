@@ -202,7 +202,7 @@
     pinctrl-0 = <&i2c1_default>;
     pinctrl-1 = <&i2c1_sleep>;
     pinctrl-names = "default", "sleep";
-    // clock-frequency = <100000>;
+    clock-frequency = <100000>;
 
     fuelgauge: max17048@36 {
         compatible = "zmk,maxim-max17048";

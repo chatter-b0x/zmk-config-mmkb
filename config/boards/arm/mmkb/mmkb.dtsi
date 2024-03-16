@@ -194,30 +194,21 @@
         inversion-on;
         prechargep = <0x22>;
     };
-
-	fuel_gauge: max17048@36 {
-		compatible = "zmk,maxim-max17048";
-		status = "okay";
-		label = "BATTERY";
-		reg = <0x36>;
-	};
 };
 
-// &i2c1 {
-//     status = "okay";
-//     compatible = "nordic,nrf-twi";
-//     pinctrl-0 = <&i2c1_default>;
-//     pinctrl-1 = <&i2c1_sleep>;
-//     pinctrl-names = "default", "sleep";
-//     clock-frequency = <100000>;
+&i2c1 {
+    status = "okay";
+    compatible = "nordic,nrf-twim";
+    pinctrl-0 = <&i2c1_default>;
+    pinctrl-1 = <&i2c1_sleep>;
+    pinctrl-names = "default", "sleep";
+    clock-frequency = <100000>;
 
-//     fuel_gauge: max17048@36 {
-//         compatible = "zmk,maxim-max17048";
-//         status = "okay";
-// 		label = "BATTERY";
-// 		reg = <0x36>;
-//     };
-// };
+    fuel_gauge: max17048@36 {
+        compatible = "zmk,maxim-max17048";
+		reg = <0x36>;
+    };
+};
 
 &spi3 {
   compatible = "nordic,nrf-spim";

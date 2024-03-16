@@ -15,7 +15,13 @@ config BT_CTLR
 config I2C
     default y
 
-config ZMK_MAX17048
+config ZMK_BLE
+	default y
+
+config ZMK_USB
+	default y
+
+config MAX17048
     default y
 
 

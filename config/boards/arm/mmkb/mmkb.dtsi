@@ -23,7 +23,7 @@
         zephyr,display = &oled;
         zmk,kscan = &kscan0;
         zmk,underglow = &led_strip;
-        zmk,battery = &fuelgauge;
+        zmk,battery = &fuel_gauge;
         zephyr,console = &cdc_acm_uart;
     };
 
@@ -204,7 +204,7 @@
     pinctrl-names = "default", "sleep";
     clock-frequency = <100000>;
 
-    fuelgauge: max17048@36 {
+    fuel_gauge: max17048@36 {
         compatible = "zmk,maxim-max17048";
         label = "BATTERY";
         reg = <0x36>;

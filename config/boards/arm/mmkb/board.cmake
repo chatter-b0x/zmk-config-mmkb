@@ -1,6 +1,6 @@
 #
-# Copyright (c) 2024 ZMK Project Contributors
-# SPDX-License-Identifier: MIT
+# copyright (c) 2024 ZMK project contributors
+# SPDX-license-identifier: MIT
 #
 
 # cmake directives on how to flash microcontroller

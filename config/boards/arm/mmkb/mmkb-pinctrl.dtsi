@@ -1,8 +1,12 @@
 /*
- * Copyright (c) 2024 ZMK Project Contributors
+ * copyright (c) 2024 ZMK project contributors
  *
- * SPDX-License-Identifier: MIT
+ * SPDX-license-identifier: MIT
  */
+
+// uncomment exactly one board revision to use
+// #define REV_3 TRUE
+#define REV_2 TRUE
 
 &pinctrl {
     
@@ -20,7 +24,25 @@
         };
     };
 
-    // I2C for display
+    #ifdef REV_3
+    // I2C for display (REV_3)
+    i2c0_default: i2c0_default {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 0, 15)>,
+                    <NRF_PSEL(TWIM_SCL, 0, 14)>;
+        };
+    };
+
+    i2c0_sleep: i2c0_sleep {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 0, 15)>,
+                    <NRF_PSEL(TWIM_SCL, 0, 14)>;
+            low-power-enable;
+        };
+    };
+
+    #elif defined(REV_2)
+    // I2C for display (REV_2, bridged pins workaround)
     i2c0_default: i2c0_default {
         group1 {
             psels = <NRF_PSEL(TWIM_SDA, 0, 15)>,
@@ -35,6 +57,7 @@
             low-power-enable;
         };
     };
+    #endif
 
     // I2C for fuel gauge chip
     i2c1_default: i2c1_default {

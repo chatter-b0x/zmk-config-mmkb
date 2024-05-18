@@ -30,7 +30,7 @@
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <&encoder_0 &encoder_1 &encoder_2 &encoder_3 &encoder_4 &encoder_5>;
-        triggers-per-rotation = <12>;
+        triggers-per-rotation = <6>;
     };
 
     kscan0: kscan {

@@ -29,6 +29,7 @@
         zmk,underglow = &led_strip;
         zmk,battery = &fuel_gauge;
         zephyr,console = &cdc_acm_uart;
+        zephyr,qdec = &qdec0;
     };
 
     sensors: sensors {

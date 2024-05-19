@@ -29,7 +29,6 @@
         zmk,underglow = &led_strip;
         zmk,battery = &fuel_gauge;
         zephyr,console = &cdc_acm_uart;
-        zephyr,qdec = &qdec0;
     };
 
     sensors: sensors {
@@ -85,7 +84,7 @@
         compatible = "alps,ec11";
         a-gpios = <&gpio0 8  (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         b-gpios = <&gpio0 6  (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        steps = <24>;
+        steps = <80>;
         status = "okay";
     };
 
@@ -96,14 +95,6 @@
         b-gpios = <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <80>;
         status = "okay";
-    };
-
-    encoder_2: qdec0 {
-        status = "okay";
-        led-pre = <0>;
-        steps = <80>;
-        pinctrl-0 = <&qdec_default>;
-        pinctrl-names = "default";
     };
     #endif
 
@@ -195,6 +186,14 @@
             reg = <0x000f4000 0x0000c000>;
         };
     };
+};
+
+encoder_2: &qdec0 {
+    status = "okay";
+    led-pre = <0>;
+    steps = <80>;
+    pinctrl-0 = <&qdec_default>;
+    pinctrl-names = "default";
 };
 
 &i2c0 {

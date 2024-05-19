@@ -74,4 +74,47 @@
             low-power-enable;
         };
     };
+
+    // quadrature rotary encoders
+    qdec_0: qdec_0 {
+        group1 {
+            psels = <NRF_PSEL(QDEC_A, 0, 25)>,
+                    <NRF_PSEL(QDEC_B, 0, 11)>;
+        }
+    };
+
+    qdec_1: qdec_1 {
+        group1 {
+            psels = <NRF_PSEL(QDEC_A, 1, 8)>,
+                    <NRF_PSEL(QDEC_B, 0, 27)>;
+        }
+    };
+
+    qdec_2: qdec_2 {
+        group1 {
+            psels = <NRF_PSEL(QDEC_A, 0, 8)>,
+                    <NRF_PSEL(QDEC_B, 0, 6)>;
+        }
+    };
+
+    qdec_3: qdec_3 {
+        group1 {
+            psels = <NRF_PSEL(QDEC_A, 0, 19)>,
+                    <NRF_PSEL(QDEC_B, 0, 26)>;
+        }
+    };
+
+    qdec_4: qdec_4 {
+        group1 {
+            psels = <NRF_PSEL(QDEC_A, 0, 23)>,
+                    <NRF_PSEL(QDEC_B, 0, 21)>;
+        }
+    };
+
+    qdec_5: qdec_5 {
+        group1 {
+            psels = <NRF_PSEL(QDEC_A, 1, 9)>,
+                    <NRF_PSEL(QDEC_B, 0, 12)>;
+        }
+    };
 };

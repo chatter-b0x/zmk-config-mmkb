@@ -12,6 +12,10 @@
 
 #include "mmkb-pinctrl.dtsi"
 
+// uncomment exactly one board revision to use
+// #define REV_3 TRUE
+#define REV_2 TRUE
+
 / {
     model = "MMKB";
     compatible = "mmkb";
@@ -30,7 +34,7 @@
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <&encoder_0 &encoder_1 &encoder_2 &encoder_3 &encoder_4 &encoder_5>;
-        triggers-per-rotation = <20>;
+        triggers-per-rotation = <6>;
     };
 
     kscan0: kscan {
@@ -67,52 +71,71 @@
                     <&gpio1 0  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
     };
 
+    #ifdef REV_3
     encoder_0: &qdec0 {
         status = "okay";
         led-pre = <0>;
         steps = <80>;
-        pinctrl-0 = <&qdec_0>;
+        pinctrl-0 = <&qdec_default>;
         pinctrl-names = "default";
     };
 
-    encoder_1: &qdec1 {
+    encoder_2: encoder_2 {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio0 8  (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio0 6  (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <24>;
         status = "okay";
-        led-pre = <0>;
-        steps = <80>;
-        pinctrl-0 = <&qdec_1>;
-        pinctrl-names = "default";
     };
 
-    encoder_2: &qdec2 {
-        status = "okay";
-        led-pre = <0>;
+    #elif defined(REV_2)
+    encoder_0: encoder_0 {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio0 25 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <80>;
-        pinctrl-0 = <&qdec_2>;
-        pinctrl-names = "default";
+        status = "okay";
     };
 
-    encoder_3: &qdec3 {
+    encoder_2: &qdec0 {
         status = "okay";
         led-pre = <0>;
         steps = <80>;
-        pinctrl-0 = <&qdec_3>;
+        pinctrl-0 = <&qdec_default>;
         pinctrl-names = "default";
     };
+    #endif
 
-    encoder_4: &qdec4 {
-        status = "okay";
-        led-pre = <0>;
+    encoder_1: encoder_1 {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio1 8  (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio0 27 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <80>;
-        pinctrl-0 = <&qdec_4>;
-        pinctrl-names = "default";
+        status = "okay";
     };
 
-    encoder_5: &qdec5 {
-        status = "okay";
-        led-pre = <0>;
+    encoder_3: encoder_3 {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio0 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio0 26 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <80>;
-        pinctrl-0 = <&qdec_5>;
-        pinctrl-names = "default";
+        status = "okay";
+    };
+
+    encoder_4: encoder_4 {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio0 23 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio0 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <80>;
+        status = "okay";
+    };
+
+    encoder_5: encoder_5 {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio1 9  (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio0 12 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <80>;
+        status = "okay";
     };
 
     EXT_POWER {

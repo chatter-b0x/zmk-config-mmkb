@@ -29,6 +29,7 @@
         zmk,underglow = &led_strip;
         zmk,battery = &fuel_gauge;
         zephyr,console = &cdc_acm_uart;
+        zmk,led-capslock = &led_capslock;
     };
 
     sensors: sensors {
@@ -126,7 +127,35 @@
         compatible = "zmk,ext-power-generic";
         control-gpios = <&gpio0 24 GPIO_ACTIVE_HIGH>;
     };
+
+    led_indicators {
+        compatible = "gpio-leds";
+        label = "LED indicators";
+        led_capslock: led_capslock {
+            gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
+            label = "caps lock LED";
+        };
+    };
 };
+
+#ifdef REV_3
+encoder_0: &qdec0 {
+    status = "okay";
+    led-pre = <0>;
+    steps = <80>;
+    pinctrl-0 = <&qdec_default>;
+    pinctrl-names = "default";
+};
+
+#elif defined(REV_2)
+encoder_2: &qdec0 {
+    status = "okay";
+    led-pre = <0>;
+    steps = <80>;
+    pinctrl-0 = <&qdec_default>;
+    pinctrl-names = "default";
+};
+#endif
 
 &gpiote {
     status = "okay";
@@ -179,25 +208,6 @@
         };
     };
 };
-
-#ifdef REV_3
-encoder_0: &qdec0 {
-    status = "okay";
-    led-pre = <0>;
-    steps = <80>;
-    pinctrl-0 = <&qdec_default>;
-    pinctrl-names = "default";
-};
-
-#elif defined(REV_2)
-encoder_2: &qdec0 {
-    status = "okay";
-    led-pre = <0>;
-    steps = <80>;
-    pinctrl-0 = <&qdec_default>;
-    pinctrl-names = "default";
-};
-#endif
 
 &i2c0 {
     status = "okay";

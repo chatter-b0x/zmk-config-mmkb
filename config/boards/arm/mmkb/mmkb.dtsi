@@ -128,13 +128,9 @@
         control-gpios = <&gpio0 24 GPIO_ACTIVE_HIGH>;
     };
 
-    led_indicators {
+    led_capslock: led_capslock {
         compatible = "gpio-leds";
-        label = "LED indicators";
-        led_capslock: led_capslock {
-            gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
-            label = "caps lock LED";
-        };
+        gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
     };
 };
 

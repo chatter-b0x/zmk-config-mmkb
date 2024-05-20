@@ -13,8 +13,8 @@
 #include "mmkb-pinctrl.dtsi"
 
 // uncomment exactly one board revision to use
-// #define REV_3 TRUE
-#define REV_2 TRUE
+#define REV_3 TRUE
+// #define REV_2 TRUE
 
 / {
     model = "MMKB";
@@ -29,7 +29,7 @@
         zmk,underglow = &led_strip;
         zmk,battery = &fuel_gauge;
         zephyr,console = &cdc_acm_uart;
-        zmk,led-capslock = &led_capslock;
+        // zmk,led-capslock = &led_capslock;
     };
 
     sensors: sensors {
@@ -128,10 +128,10 @@
         control-gpios = <&gpio0 24 GPIO_ACTIVE_HIGH>;
     };
 
-    led_capslock: led_capslock {
-        compatible = "gpio-leds";
-        gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
-    };
+    // led_capslock: led_capslock {
+    //     compatible = "gpio-leds";
+    //     gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
+    // };
 };
 
 #ifdef REV_3

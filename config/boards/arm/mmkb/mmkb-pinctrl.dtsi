@@ -5,8 +5,8 @@
  */
 
 // uncomment exactly one board revision to use
-// #define REV_3 TRUE
-#define REV_2 TRUE
+#define REV_3 TRUE
+// #define REV_2 TRUE
 
 &pinctrl {
     

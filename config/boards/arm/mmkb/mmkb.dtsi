@@ -29,7 +29,6 @@
         zmk,underglow = &led_strip;
         zmk,battery = &fuel_gauge;
         zephyr,console = &cdc_acm_uart;
-        // zmk,led-capslock = &led_capslock;
     };
 
     sensors: sensors {
@@ -75,8 +74,8 @@
     #ifdef REV_3
     encoder_2: encoder_2 {
         compatible = "alps,ec11";
-        a-gpios = <&gpio0 8  (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&gpio0 6  (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        a-gpios = <&gpio0 6  (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio0 8  (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <80>;
         status = "okay";
     };
@@ -84,8 +83,8 @@
     #elif defined(REV_2)
     encoder_0: encoder_0 {
         compatible = "alps,ec11";
-        a-gpios = <&gpio0 25 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        a-gpios = <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio0 25 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <80>;
         status = "okay";
     };
@@ -93,32 +92,32 @@
 
     encoder_1: encoder_1 {
         compatible = "alps,ec11";
-        a-gpios = <&gpio1 8  (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&gpio0 27 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        a-gpios = <&gpio0 27 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio1 8  (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <80>;
         status = "okay";
     };
 
     encoder_3: encoder_3 {
         compatible = "alps,ec11";
-        a-gpios = <&gpio0 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&gpio0 26 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        a-gpios = <&gpio0 26 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio0 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <80>;
         status = "okay";
     };
 
     encoder_4: encoder_4 {
         compatible = "alps,ec11";
-        a-gpios = <&gpio0 23 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&gpio0 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        a-gpios = <&gpio0 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio0 23 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <80>;
         status = "okay";
     };
 
     encoder_5: encoder_5 {
         compatible = "alps,ec11";
-        a-gpios = <&gpio1 9  (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&gpio0 12 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        a-gpios = <&gpio0 12 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio1 9  (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <80>;
         status = "okay";
     };
@@ -127,11 +126,6 @@
         compatible = "zmk,ext-power-generic";
         control-gpios = <&gpio0 24 GPIO_ACTIVE_HIGH>;
     };
-
-    // led_capslock: led_capslock {
-    //     compatible = "gpio-leds";
-    //     gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
-    // };
 };
 
 #ifdef REV_3

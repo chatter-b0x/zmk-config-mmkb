@@ -44,8 +44,8 @@
     // primary quadrature rotary encoder (REV_3)
     qdec_default: qdec_default {
         group1 {
-            psels = <NRF_PSEL(QDEC_A, 0, 25)>,
-                    <NRF_PSEL(QDEC_B, 0, 11)>;
+            psels = <NRF_PSEL(QDEC_A, 0, 11)>,
+                    <NRF_PSEL(QDEC_B, 0, 25)>;
             bias-pull-up;
         };
     };

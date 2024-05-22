@@ -28,10 +28,10 @@ static int led_capslock_listener_cb(const zmk_event_t *eh) {
     zmk_led_indicators_flags_t flags = zmk_led_indicators_get_current_flags();
 
     if (flags & ZMK_LED_INDICATORS_CAPSLOCK_BIT) {
-        led_on(led_dev, DT_NODE_CHILD_IDX(DT_ALIAS(led_main));
+        led_on(led_dev, DT_NODE_CHILD_IDX(DT_ALIAS(led-main));
 
     } else {
-        led_off(led_dev, DT_NODE_CHILD_IDX(DT_ALIAS(led_main));
+        led_off(led_dev, DT_NODE_CHILD_IDX(DT_ALIAS(led-main));
     }
 
     return 0;

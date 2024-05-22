@@ -128,7 +128,7 @@
     };
 
     aliases {
-        led_main = &led_0;
+        led-main = &led_0;
     };
 
     leds {

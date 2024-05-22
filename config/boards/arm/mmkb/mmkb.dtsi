@@ -126,6 +126,18 @@
         compatible = "zmk,ext-power-generic";
         control-gpios = <&gpio0 24 GPIO_ACTIVE_HIGH>;
     };
+
+    aliases {
+        led_main = &led_0;
+    };
+
+    leds {
+        compatible = "gpio-leds";
+        status = "okay";
+        led_0: led_0 {
+            gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
+        };
+    };
 };
 
 #ifdef REV_3

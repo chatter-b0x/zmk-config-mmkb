@@ -57,7 +57,7 @@ CONFIG_ZMK_HID_INDICATORS=y
 
 # uncomment to enable deep sleep
 CONFIG_ZMK_SLEEP=y
-CONFIG_ZMK_IDLE_SLEEP_TIMEOUT=60000
+CONFIG_ZMK_IDLE_SLEEP_TIMEOUT=900000
 
 # # uncomment to enable USB logging / debugging
 # CONFIG_ZMK_USB_LOGGING=y

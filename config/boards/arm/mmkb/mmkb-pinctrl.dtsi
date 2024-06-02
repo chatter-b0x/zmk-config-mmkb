@@ -5,8 +5,8 @@
  */
 
 // uncomment exactly one board revision to use
-#define REV_3 TRUE
-// #define REV_2 TRUE
+// #define REV_3 TRUE
+#define REV_2 TRUE
 
 &pinctrl {
     
@@ -50,6 +50,15 @@
         };
     };
 
+    qdec_sleep: qdec_sleep {
+        group1 {
+            psels = <NRF_PSEL(QDEC_A, 0, 8)>,
+                    <NRF_PSEL(QDEC_B, 0, 6)>;
+            bias-pull-up;
+            low-power-enable;
+        };
+    };
+
     #elif defined(REV_2)
     // I2C for display (REV_2, bridged pins workaround)
     i2c0_default: i2c0_default {
@@ -73,6 +82,15 @@
             psels = <NRF_PSEL(QDEC_A, 0, 8)>,
                     <NRF_PSEL(QDEC_B, 0, 6)>;
             bias-pull-up;
+        };
+    };
+
+    qdec_sleep: qdec_sleep {
+        group1 {
+            psels = <NRF_PSEL(QDEC_A, 0, 8)>,
+                    <NRF_PSEL(QDEC_B, 0, 6)>;
+            bias-pull-up;
+            low-power-enable;
         };
     };
     #endif

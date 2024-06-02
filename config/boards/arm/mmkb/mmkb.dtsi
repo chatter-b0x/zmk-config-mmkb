@@ -13,8 +13,8 @@
 #include "mmkb-pinctrl.dtsi"
 
 // uncomment exactly one board revision to use
-#define REV_3 TRUE
-// #define REV_2 TRUE
+// #define REV_3 TRUE
+#define REV_2 TRUE
 
 / {
     model = "MMKB";
@@ -146,7 +146,8 @@ encoder_0: &qdec0 {
     led-pre = <0>;
     steps = <80>;
     pinctrl-0 = <&qdec_default>;
-    pinctrl-names = "default";
+    pinctrl-1 = <&qdec_sleep>;
+    pinctrl-names = "default", "sleep";
 };
 
 #elif defined(REV_2)
@@ -155,7 +156,8 @@ encoder_2: &qdec0 {
     led-pre = <0>;
     steps = <80>;
     pinctrl-0 = <&qdec_default>;
-    pinctrl-names = "default";
+    pinctrl-1 = <&qdec_sleep>;
+    pinctrl-names = "default", "sleep";
 };
 #endif
 

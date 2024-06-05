@@ -5,8 +5,8 @@
  */
 
 // uncomment exactly one board revision to use
-// #define REV_3 TRUE
-#define REV_2 TRUE
+#define REV_3 TRUE
+// #define REV_2 TRUE
 
 &pinctrl {
     
@@ -20,6 +20,22 @@
     spi3_sleep: spi3_sleep {
         group1 {
             psels = <NRF_PSEL(SPIM_MOSI, 0, 20)>;
+            low-power-enable;
+        };
+    };
+
+    // I2C for fuel gauge chip
+    i2c1_default: i2c1_default {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 0, 13)>,
+                    <NRF_PSEL(TWIM_SCL, 0, 16)>;
+        };
+    };
+
+    i2c1_sleep: i2c1_sleep {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 0, 13)>,
+                    <NRF_PSEL(TWIM_SCL, 0, 16)>;
             low-power-enable;
         };
     };
@@ -94,20 +110,4 @@
         };
     };
     #endif
-
-    // I2C for fuel gauge chip
-    i2c1_default: i2c1_default {
-        group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 13)>,
-                    <NRF_PSEL(TWIM_SCL, 0, 16)>;
-        };
-    };
-
-    i2c1_sleep: i2c1_sleep {
-        group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 13)>,
-                    <NRF_PSEL(TWIM_SCL, 0, 16)>;
-            low-power-enable;
-        };
-    };
 };

@@ -3,7 +3,7 @@
 # SPDX-license-identifier: MIT
 #
 
-# microcontroller being used
+# microcontroller for board
 config BOARD_MMKB
     bool "mmkb"
     depends on SOC_NRF52840_QIAA

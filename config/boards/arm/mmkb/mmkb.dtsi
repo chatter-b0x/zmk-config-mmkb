@@ -71,24 +71,22 @@
                     <&gpio1 0  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
     };
 
-    #ifdef REV_3
-    encoder_2: encoder_2 {
-        compatible = "alps,ec11";
-        a-gpios = <&gpio0 6  (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&gpio0 8  (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        steps = <80>;
-        status = "okay";
+    EXT_POWER {
+        compatible = "zmk,ext-power-generic";
+        control-gpios = <&gpio0 24 GPIO_ACTIVE_HIGH>;
     };
 
-    #elif defined(REV_2)
-    encoder_0: encoder_0 {
-        compatible = "alps,ec11";
-        a-gpios = <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&gpio0 25 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        steps = <80>;
-        status = "okay";
+    aliases {
+        led-main = &led_0;
     };
-    #endif
+
+    leds {
+        compatible = "gpio-leds";
+        status = "okay";
+        led_0: led_0 {
+            gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
+        };
+    };
 
     encoder_1: encoder_1 {
         compatible = "alps,ec11";
@@ -122,22 +120,24 @@
         status = "okay";
     };
 
-    EXT_POWER {
-        compatible = "zmk,ext-power-generic";
-        control-gpios = <&gpio0 24 GPIO_ACTIVE_HIGH>;
-    };
-
-    aliases {
-        led-main = &led_0;
-    };
-
-    leds {
-        compatible = "gpio-leds";
+    #ifdef REV_3
+    encoder_2: encoder_2 {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio0 6  (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio0 8  (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <80>;
         status = "okay";
-        led_0: led_0 {
-            gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
-        };
     };
+
+    #elif defined(REV_2)
+    encoder_0: encoder_0 {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio0 25 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <80>;
+        status = "okay";
+    };
+    #endif
 };
 
 #ifdef REV_3

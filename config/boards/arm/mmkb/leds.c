@@ -41,7 +41,7 @@ static int led_capslock_listener_cb(const zmk_event_t *eh) {
 }
 
 ZMK_LISTENER(led_indicators_listener, led_capslock_listener_cb);
-ZMK_SUBSCRIPTION(led_indicators_listener, zmk_led_indicators_changed);
+ZMK_SUBSCRIPTION(led_indicators_listener, zmk_hid_indicators_changed);
 
 static int leds_init(const struct device *device) {
     if (!device_is_ready(led_dev)) {

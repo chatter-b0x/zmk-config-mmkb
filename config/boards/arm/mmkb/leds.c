@@ -26,18 +26,21 @@ static const struct device *led_dev = DEVICE_DT_GET(LED_GPIO_NODE_ID);
 
 static int led_capslock_listener_cb(const zmk_event_t *eh) {
     zmk_hid_indicators_t flags = zmk_hid_indicators_get_current_profile();
+    LOG_INF("current flags: %d", flags);
 
     if (flags & (0x01 << HID_USAGE_LED_CAPS_LOCK)) {
         LOG_INF("CAPSLOCK is on");
-        led_on(led_dev, DT_NODE_CHILD_IDX(DT_ALIAS(led-main));
+        led_on(led_dev, DT_NODE_CHILD_IDX(DT_ALIAS(led_main));
 
     } else {
         LOG_INF("CAPSLOCK is off");
-        led_off(led_dev, DT_NODE_CHILD_IDX(DT_ALIAS(led-main));
+        led_off(led_dev, DT_NODE_CHILD_IDX(DT_ALIAS(led_main));
     }
 
     return 0;
 }
+
+ZMK_LISTENER(zmk_hid_indicators_changed, zmk_hid_indicators_get_current_profile());
 
 ZMK_LISTENER(led_indicators_listener, led_capslock_listener_cb);
 ZMK_SUBSCRIPTION(led_indicators_listener, zmk_led_indicators_changed);

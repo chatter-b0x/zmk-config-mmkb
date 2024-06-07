@@ -30,11 +30,11 @@ static int led_capslock_listener_cb(const zmk_event_t *eh) {
 
     if (flags & (0x01 << HID_USAGE_LED_CAPS_LOCK)) {
         LOG_INF("CAPSLOCK is on");
-        led_on(led_dev, DT_NODE_CHILD_IDX(DT_ALIAS(led_main));
+        led_on(led_dev, DT_NODE_CHILD_IDX(DT_ALIAS(led_main)));
 
     } else {
         LOG_INF("CAPSLOCK is off");
-        led_off(led_dev, DT_NODE_CHILD_IDX(DT_ALIAS(led_main));
+        led_off(led_dev, DT_NODE_CHILD_IDX(DT_ALIAS(led_main)));
     }
 
     return 0;

@@ -25,9 +25,9 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 static const struct device *led_dev = DEVICE_DT_GET(LED_GPIO_NODE_ID);
 
 static int led_capslock_listener_cb(const zmk_event_t *eh) {
-    zmk_hid_indicators_t flags = zmk_led_indicators_get_current_flags();
+    zmk_hid_indicators_t flags = zmk_hid_indicators_get_current_profile();
 
-    if (flags & ZMK_HID_INDICATORS_CAPSLOCK_BIT) {
+    if (flags & (0x01 << HID_USAGE_LED_CAPS_LOCK)) {
         LOG_INF("CAPSLOCK is on");
         led_on(led_dev, DT_NODE_CHILD_IDX(DT_ALIAS(led-main));
 

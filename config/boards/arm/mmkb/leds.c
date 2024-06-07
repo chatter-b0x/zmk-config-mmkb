@@ -12,8 +12,8 @@
 #include <zmk/events/split_peripheral_status_changed.h>
 #include <zmk/events/battery_state_changed.h>
 
-#include <zmk/led_indicators.h>
-#include <zmk/events/led_indicator_changed.h>
+#include <led_indicators.h>
+#include <led_indicator_changed.h>
 
 #include <zephyr/logging/log.h>
 

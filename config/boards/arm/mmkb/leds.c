@@ -40,8 +40,6 @@ static int led_capslock_listener_cb(const zmk_event_t *eh) {
     return 0;
 }
 
-ZMK_LISTENER(zmk_hid_indicators_changed, zmk_hid_indicators_get_current_profile());
-
 ZMK_LISTENER(led_indicators_listener, led_capslock_listener_cb);
 ZMK_SUBSCRIPTION(led_indicators_listener, zmk_led_indicators_changed);
 

@@ -43,14 +43,14 @@ static int led_capslock_listener_cb(const zmk_event_t *eh) {
 // ZMK_LISTENER(led_indicators_listener, led_capslock_listener_cb);
 // ZMK_SUBSCRIPTION(led_indicators_listener, zmk_hid_indicators_changed);
 
-// static int leds_init(const struct device *device) {
-//     if (!device_is_ready(led_dev)) {
-//         LOG_ERR("Device %s is not ready", led_dev->name);
-//         return -ENODEV;
-//     }
+static int leds_init(const struct device *device) {
+    if (!device_is_ready(led_dev)) {
+        LOG_ERR("Device %s is not ready", led_dev->name);
+        return -ENODEV;
+    }
 
-//     return 0;
-// }
+    return 0;
+}
 
-// // run leds_init on boot
-// SYS_INIT(leds_init, APPLICATION, CONFIG_APPLICATION_INIT_PRIORITY);
+// run leds_init on boot
+SYS_INIT(leds_init, APPLICATION, CONFIG_APPLICATION_INIT_PRIORITY);

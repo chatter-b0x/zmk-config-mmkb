@@ -19,7 +19,7 @@
 
 LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 
-#define LED_GPIO_NODE_ID DT_COMPAT_GET_ANY_STATUS_OKAY(gpio_leds)
+// #define LED_GPIO_NODE_ID DT_COMPAT_GET_ANY_STATUS_OKAY(gpio_leds)
 
 // GPIO-based LED device and indices of red/green/blue LEDs inside its DT node
 static const struct device *led_dev = DEVICE_DT_GET(LED_GPIO_NODE_ID);
@@ -28,7 +28,7 @@ static int led_capslock_listener_cb(const zmk_event_t *eh) {
     zmk_hid_indicators_t flags = zmk_hid_indicators_get_current_profile();
     LOG_INF("current flags: %d", flags);
 
-    if (flags & 0b10) {
+    if (flags & HID_USAGE_LED_CAPS_LOCK) {
         LOG_INF("CAPSLOCK is on");
         led_on(led_dev, DT_NODE_CHILD_IDX(DT_ALIAS(led_main)));
 
@@ -40,17 +40,17 @@ static int led_capslock_listener_cb(const zmk_event_t *eh) {
     return 0;
 }
 
-ZMK_LISTENER(led_indicators_listener, led_capslock_listener_cb);
-ZMK_SUBSCRIPTION(led_indicators_listener, zmk_hid_indicators_changed);
+// ZMK_LISTENER(led_indicators_listener, led_capslock_listener_cb);
+// ZMK_SUBSCRIPTION(led_indicators_listener, zmk_hid_indicators_changed);
 
-static int leds_init(const struct device *device) {
-    if (!device_is_ready(led_dev)) {
-        LOG_ERR("Device %s is not ready", led_dev->name);
-        return -ENODEV;
-    }
+// static int leds_init(const struct device *device) {
+//     if (!device_is_ready(led_dev)) {
+//         LOG_ERR("Device %s is not ready", led_dev->name);
+//         return -ENODEV;
+//     }
 
-    return 0;
-}
+//     return 0;
+// }
 
-// run leds_init on boot
-SYS_INIT(leds_init, APPLICATION, CONFIG_APPLICATION_INIT_PRIORITY);
+// // run leds_init on boot
+// SYS_INIT(leds_init, APPLICATION, CONFIG_APPLICATION_INIT_PRIORITY);

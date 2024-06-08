@@ -11,8 +11,8 @@
 #include <dt-bindings/zmk/outputs.h>
 
 // uncomment exactly one layout to use
-#define STANDARD           TRUE
-// #define STANDARD_F13       TRUE
+// #define STANDARD           TRUE
+#define STANDARD_F13       TRUE
 // #define NAV_KEYS           TRUE
 // #define NAV_KEYS_F13       TRUE
 // #define FLIPPED_NUMPAD     TRUE

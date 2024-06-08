@@ -28,7 +28,7 @@ static int led_capslock_listener_cb(const zmk_event_t *eh) {
     zmk_hid_indicators_t flags = zmk_hid_indicators_get_current_profile();
     LOG_INF("current flags: %d", flags);
 
-    if (flags & (0x01 << HID_USAGE_LED_CAPS_LOCK)) {
+    if (flags & 0x10) {
         LOG_INF("CAPSLOCK is on");
         led_on(led_dev, DT_NODE_CHILD_IDX(DT_ALIAS(led_main)));
 
@@ -49,7 +49,7 @@ static int leds_init(const struct device *device) {
         return -ENODEV;
     }
 
-    return 0;
+    return 0; 0x11
 }
 
 // run leds_init on boot

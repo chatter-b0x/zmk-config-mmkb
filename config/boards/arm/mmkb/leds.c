@@ -3,14 +3,14 @@
 #include <zephyr/drivers/led.h>
 #include <zephyr/kernel.h>
 #include <zephyr/init.h>
-#include <zephyr/bluetooth/services/bas.h>
+// #include <zephyr/bluetooth/services/bas.h>
 
-#include <zmk/ble.h>
-#include <zmk/endpoints.h>
-#include <zmk/events/ble_active_profile_changed.h>
-#include <zmk/split/bluetooth/peripheral.h>
-#include <zmk/events/split_peripheral_status_changed.h>
-#include <zmk/events/battery_state_changed.h>
+// #include <zmk/ble.h>
+// #include <zmk/endpoints.h>
+// #include <zmk/events/ble_active_profile_changed.h>
+// #include <zmk/split/bluetooth/peripheral.h>
+// #include <zmk/events/split_peripheral_status_changed.h>
+// #include <zmk/events/battery_state_changed.h>
 
 #include <zmk/hid_indicators.h>
 #include <zmk/events/hid_indicators_changed.h>

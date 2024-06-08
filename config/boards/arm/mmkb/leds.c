@@ -3,18 +3,8 @@
 #include <zephyr/drivers/led.h>
 #include <zephyr/kernel.h>
 #include <zephyr/init.h>
-// #include <zephyr/bluetooth/services/bas.h>
-
-// #include <zmk/ble.h>
-// #include <zmk/endpoints.h>
-// #include <zmk/events/ble_active_profile_changed.h>
-// #include <zmk/split/bluetooth/peripheral.h>
-// #include <zmk/events/split_peripheral_status_changed.h>
-// #include <zmk/events/battery_state_changed.h>
-
 #include <zmk/hid_indicators.h>
 #include <zmk/events/hid_indicators_changed.h>
-
 #include <zephyr/logging/log.h>
 
 LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
@@ -27,10 +17,12 @@ static const struct device *led_dev = DEVICE_DT_GET(LED_GPIO_NODE_ID);
 static int led_capslock_listener_cb(const zmk_event_t *eh) {
     zmk_hid_indicators_t flags = zmk_hid_indicators_get_current_profile();
 
+    // enable CAPSLOCK LED indicator
     if (flags & HID_USAGE_LED_CAPS_LOCK) {
         LOG_INF("CAPSLOCK is on");
         led_on(led_dev, DT_NODE_CHILD_IDX(DT_ALIAS(led_main)));
 
+    // disable CAPSLOCK LED indicator
     } else {
         LOG_INF("CAPSLOCK is off");
         led_off(led_dev, DT_NODE_CHILD_IDX(DT_ALIAS(led_main)));

@@ -7,7 +7,7 @@ if BOARD_MMKB
 
 
 config ZMK_KEYBOARD_NAME
-    default "MMKB"
+    default "UNIT-01"
 
 config BT_CTLR
     default BT

@@ -13,8 +13,8 @@
 #include "mmkb-pinctrl.dtsi"
 
 // uncomment exactly one board revision to use
-#define REV_3 TRUE
-// #define REV_2 TRUE
+// #define REV_3 TRUE
+#define REV_2 TRUE
 
 / {
     model = "MMKB";
